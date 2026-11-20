@@ -21,19 +21,19 @@
     <p class="lead">줄기세포와 면역세포, 엑소좀을 연구하는<br>파나셀바이오텍입니다.</p>
     <a class="button" href="#research">연구 분야 살펴보기</a>
   </div></section>
-  <section id="about" class="wrap section split">
-    <div><p class="eyebrow">ABOUT US</p><h2>회사소개</h2></div>
-    <div><h3>파나셀바이오텍</h3><p>2021년 설립된 파나셀바이오텍은 세포 기반 바이오 기술을 연구하는 기업입니다. 줄기세포·면역세포·엑소좀 연구를 바탕으로 치료제와 화장품 개발에 집중합니다.</p></div>
+  <section id="about" class="wrap introduction" aria-label="회사소개">
+    <p>파나셀바이오텍은 세포 기반 기술로<br class="wide"> 치료제와 화장품을 연구·개발합니다.</p>
+    <span>2021년 설립</span>
   </section>
-  <section id="research" class="research"><div class="wrap section split">
-    <div><p class="eyebrow">RESEARCH</p><h2>연구 분야</h2></div>
-    <div class="rows">
-      <article><small lang="en">Stem cells</small><h3>줄기세포</h3><p>여러 종류의 세포로 분화할 수 있는 줄기세포의 특성과 활용 가능성을 연구합니다.</p></article>
-      <article><small lang="en">Immune cells</small><h3>면역세포</h3><p>우리 몸의 방어 체계에서 면역세포가 하는 역할에 주목합니다.</p></article>
-      <article><small lang="en">Exosomes</small><h3>엑소좀</h3><p>세포가 방출하는 작은 소포인 엑소좀을 통해 세포 사이에 정보가 전달되는 과정에 주목합니다.</p></article>
-    </div>
-  </div></section>
-  <section id="contact" class="wrap section split"><div><p class="eyebrow">CONTACT</p><h2>사업 문의</h2></div><div><p class="contact-label">파나셀바이오텍 대표전화</p><a class="phone" href="tel:+8225933210">02-593-3210</a></div></section>
+  <section id="research" class="wrap fields" aria-labelledby="fields-title">
+    <h2 id="fields-title">연구 분야</h2>
+    <details open><summary>줄기세포 <small lang="en">Stem cells</small></summary><p>줄기세포가 여러 종류의 세포로 분화하는 특성과 그 활용 가능성을 연구합니다.</p></details>
+    <details><summary>면역세포 <small lang="en">Immune cells</small></summary><p>우리 몸의 방어 체계에서 면역세포가 하는 역할을 살펴봅니다.</p></details>
+    <details><summary>엑소좀 <small lang="en">Exosomes</small></summary><p>세포가 방출하는 작은 소포인 엑소좀을 통해 세포 사이에 정보가 전달되는 과정을 연구합니다.</p></details>
+  </section>
 </main>
-<footer><div class="wrap bar"><span>주식회사 파나셀바이오텍</span><a href="#top">맨 위로</a></div></footer>
+<footer id="contact"><div class="wrap">
+  <div class="contact"><h2>사업 문의</h2><a href="tel:+8225933210">02-593-3210</a></div>
+  <div class="bar"><span>주식회사 파나셀바이오텍</span><a href="#top">맨 위로 ↑</a></div>
+</div></footer>
 </body></html>
