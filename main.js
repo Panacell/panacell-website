@@ -1,5 +1,28 @@
 const EMAIL = "info@panacellbio.com";
 const KO = {
+  tp_title:"연구기술",
+  tp_lead:"세포를 안정적으로 키우고, 세포가 만들어내는 물질을 활용하는 하나의 역량에서 출발한 네 가지 플랫폼입니다.",
+  tp1_p1:"중간엽 줄기세포(MSC)는 여러 종류의 세포로 분화할 수 있고, 자라는 배양액 속으로 다양한 신호물질을 분비합니다. 파나셀바이오텍은 인체 제대의 와튼젤리에서 유래한 중간엽 줄기세포를 배양하고, 지방유래 줄기세포(ADSC)를 연구합니다.",
+  tp1_p2:"자체 연구진이 개발한 배양액 추출물은 국제화장품성분(INCI)에 공식 등록되어, 국제적으로 통용되는 화장품 성분명을 갖고 있습니다.",
+  kv_src:"세포 출처", tp1_src:"인체 제대 와튼젤리 · 지방조직",
+  kv_out:"결과물", tp1_out:"INCI 등록 줄기세포 배양액 추출물",
+  kv_use:"활용 분야", tp1_use:"화장품 원료 · 재생의료 연구",
+  tp2_p1:"엑소좀은 세포가 분비하는 약 30–150nm 크기의 소포체로, 단백질·지질·RNA를 다른 세포로 전달합니다. 활용 가치는 얼마나 많이, 얼마나 깨끗하게 회수하느냐에 달려 있습니다.",
+  tp2_p2:"파나셀바이오텍의 특허 공정은 NK·NKT·T세포를 함께 배양할 때 나오는 배양액을 모아, 여과 방식으로 mL당 최대 4×10¹¹개의 엑소좀 입자를 분리합니다. 이 특허는 2024년 8월 7일 등록되었습니다.",
+  tp2_fig:"mL당 엑소좀 입자 수",
+  kv_pat:"특허", tp2_pat:"엑소좀 제조방법, 2024년 8월 등록",
+  kv_app:"특허 출원", tp2_app:"자체 공정 엑소좀 함유 화장료 조성물 3건",
+  kv_part:"파트너십", tp2_part:"파나셀라와 엑소좀 제품 공동개발 업무협약 (2026)",
+  tp3_p1:"자연살해(NK)세포는 사전 감작 없이 비정상 세포를 스스로 인식하고 제거하는 선천 면역세포입니다. NK세포를 대량 배양하고, 수지상세포·NK세포·T세포를 함께 키우는 DC-NK-T 복합 면역세포를 배양합니다.",
+  tp3_p2:"이 공동배양에서 나온 배양액은 엑소좀 공정의 원료가 되어, 두 플랫폼이 하나의 공급원을 공유합니다.",
+  kv_cells:"세포 종류", tp3_cells:"NK · NKT · T세포 · 수지상세포",
+  kv_res:"연구", tp3_res:"롱코비드 대상 NK세포·엑소좀·지방유래 줄기세포 연구 추진 (2022)",
+  tp4_p1:"세포 배양과 처리는 2021년부터 식품의약품안전처 허가를 받은 세포처리시설에서 이루어집니다. 이 허가는 국내에서 첨단재생의료용 세포를 공급하기 위해 필요합니다.",
+  tp4_p2:"2024년 첨단재생의료 실시기관으로 지정된 협력 의료기관과 함께, 세포 보관에서 배양, 활용까지의 과정을 함께합니다.",
+  fl1:"보관", fl2:"배양", fl4:"활용",
+  kv_lic:"허가", tp4_lic:"식약처 세포처리시설 (2021)",
+  kv_iso:"인증", tp4_iso:"ISO 9001 · ISO 14001 (2022년 7월)",
+  tp_cta:"기술 협력에 관심이 있으신가요?",
   a_title:"회사소개",
   a_lead:"세포 보관부터 배양, 활용까지. 파나셀바이오텍은 자체 개발한 기술로 전 과정을 한곳에서 제공합니다.",
   sn_over:"개요", sn_prof:"회사 현황", sn_cert:"인증", sn_hist:"연혁", sn_ci:"CI", sn_loc:"오시는 길",
@@ -91,7 +114,6 @@ function showTab(i){
 tabs.forEach((t,i) => t.addEventListener("click", () => showTab(i)));
 document.querySelectorAll("[data-tab]").forEach(el => el.addEventListener("click", e => {
   showTab(+el.dataset.tab);
-  if (el.tagName === "ARTICLE") document.getElementById("technology").scrollIntoView({behavior:"smooth"});
   document.body.classList.remove("nav-open");
 }));
 
@@ -126,3 +148,6 @@ if (sn.length) {
     sn.forEach((a,j) => a.classList.toggle("on", i === j));
   }, {passive:true});
 }
+
+// whole card opens its technology page
+document.querySelectorAll(".card").forEach(c => c.addEventListener("click", e => { if (!e.target.closest("a")) location.href = c.querySelector(".more").href; }));
