@@ -1,5 +1,13 @@
 const EMAIL = "info@panacellbio.com";
 const KO = {
+  nr_lead:"공지, 파트너십, 연구 관련 보도를 전합니다.",
+  nf_all:"전체", nr_items:"건",
+  nr1:"양사는 엑소좀 원료를 활용한 제품 기획과 연구개발을 함께 추진하고, 국내외 시장 진출을 위한 브랜드·사업 전략을 공동으로 수립합니다.",
+  nr2:"2024년 8월 7일 등록된 이 특허는 NK·NKT·T세포 공동배양 배양액에서 여과 방식으로 mL당 최대 4×10¹¹개의 엑소좀 입자를 분리하는 기술입니다.",
+  nr3:"롱코비드 증상에 대한 세포 기반 접근법을 연구하는 프로그램이 소개되었습니다.",
+  nr_empty:"이 분류에는 아직 소식이 없습니다.",
+  mb_h:"언론 문의", mb_p:"인터뷰, 이미지, 회사 정보가 필요하시면 연락 주세요.",
+  view_all:"전체 보기",
   tp_title:"연구기술",
   tp_lead:"세포를 안정적으로 키우고, 세포가 만들어내는 물질을 활용하는 하나의 역량에서 출발한 네 가지 플랫폼입니다.",
   tp1_p1:"중간엽 줄기세포(MSC)는 여러 종류의 세포로 분화할 수 있고, 자라는 배양액 속으로 다양한 신호물질을 분비합니다. 파나셀바이오텍은 인체 제대의 와튼젤리에서 유래한 중간엽 줄기세포를 배양하고, 지방유래 줄기세포(ADSC)를 연구합니다.",
@@ -151,3 +159,21 @@ if (sn.length) {
 
 // whole card opens its technology page
 document.querySelectorAll(".card").forEach(c => c.addEventListener("click", e => { if (!e.target.closest("a")) location.href = c.querySelector(".more").href; }));
+
+// newsroom filter
+const fbtn = [...document.querySelectorAll(".filters button")];
+if (fbtn.length) {
+  const items = [...document.querySelectorAll(".nlist li")], empty = document.querySelector(".empty"), n = document.getElementById("nr-n");
+  const apply = f => {
+    let c = 0;
+    items.forEach(li => { const show = f === "all" || li.dataset.cat === f; li.hidden = !show; if (show) c++; });
+    fbtn.forEach(b => b.classList.toggle("on", b.dataset.f === f));
+    n.textContent = c; empty.hidden = c > 0;
+  };
+  fbtn.forEach(b => b.addEventListener("click", () => { apply(b.dataset.f); history.replaceState(null, "", b.dataset.f === "all" ? location.pathname : "#" + b.dataset.f); }));
+  const h = location.hash.slice(1); if (["press","partner","media"].includes(h)) apply(h);
+}
+// Korean-language article links when KOR is selected
+function swapHrefs(){ const ko = document.documentElement.lang === "ko";
+  document.querySelectorAll("[data-ko-href]").forEach(a => { a.dataset.enHref ??= a.getAttribute("href"); a.href = ko ? a.dataset.koHref : a.dataset.enHref; }); }
+document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", swapHrefs)); swapHrefs();
