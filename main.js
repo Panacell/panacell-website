@@ -1,5 +1,17 @@
 const EMAIL = "info@panacellbio.com";
 const KO = {
+  ct_lead:"기술이전, 공동 연구개발, 투자, 언론 문의 등 어떤 내용이든 남겨주시면 담당 팀이 이메일로 답변드립니다.",
+  f_type:"문의 유형", f_rd:"공동 연구개발", f_other:"기타",
+  f_name:"이름", f_co:"회사명", f_phone:"전화번호", f_msg:"문의 내용",
+  f_agree:"개인정보 수집·이용에 동의합니다 (필수)",
+  f_c1:"수집 항목: 이름, 이메일, 문의 내용(필수) / 회사명, 전화번호(선택)",
+  f_c2:"이용 목적: 문의 확인 및 답변",
+  f_c3:"보유 기간: 문의 처리 완료 후 지체 없이 파기 (관계 법령에 따른 보존 의무가 있는 경우 해당 기간 보관)",
+  f_c4:"동의를 거부할 수 있으나, 거부 시 문의에 답변드릴 수 없습니다.",
+  pp:"개인정보처리방침", pp_eff:"시행일",
+  f_err:"필수 항목을 입력하고 개인정보 수집·이용에 동의해 주세요.",
+  f_send:"문의 보내기",
+  f_note:"보내기를 누르면 작성한 내용이 담긴 이메일 앱이 열립니다. 그대로 info@panacellbio.com으로 보내주세요.",
   nr_lead:"공지, 파트너십, 연구 관련 보도를 전합니다.",
   nf_all:"전체", nr_items:"건",
   nr1:"양사는 엑소좀 원료를 활용한 제품 기획과 연구개발을 함께 추진하고, 국내외 시장 진출을 위한 브랜드·사업 전략을 공동으로 수립합니다.",
@@ -109,9 +121,7 @@ function setLang(l){
 document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
 try { if (localStorage.getItem("lang") === "ko") setLang("ko"); } catch(e){}
 
-document.querySelectorAll("[data-mail]").forEach(a => {
-  a.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(a.dataset.mail === "ir" ? "Investor Relations Inquiry" : "Technology Licensing Inquiry");
-});
+document.querySelectorAll("[data-mail]").forEach(a => { a.href = "contact.html?type=" + a.dataset.mail; });
 
 // tabs
 const tabs = [...document.querySelectorAll(".tab")], panels = [...document.querySelectorAll(".panel")];
@@ -177,3 +187,25 @@ if (fbtn.length) {
 function swapHrefs(){ const ko = document.documentElement.lang === "ko";
   document.querySelectorAll("[data-ko-href]").forEach(a => { a.dataset.enHref ??= a.getAttribute("href"); a.href = ko ? a.dataset.koHref : a.dataset.enHref; }); }
 document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", swapHrefs)); swapHrefs();
+
+// contact form -> opens the visitor's email app
+const cf = document.getElementById("cform");
+if (cf) {
+  const t = new URLSearchParams(location.search).get("type");
+  const r = t && cf.querySelector(`input[name=type][value="${t}"]`); if (r) r.checked = true;
+  cf.addEventListener("submit", e => {
+    e.preventDefault();
+    let ok = true;
+    cf.querySelectorAll("[required]").forEach(f => {
+      const good = f.type === "checkbox" ? f.checked : f.value.trim() && (f.type !== "email" || /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value.trim()));
+      (f.type === "checkbox" ? cf.querySelector(".consent") : f.closest(".fld")).classList.toggle("bad", !good);
+      if (!good) ok = false;
+    });
+    document.getElementById("ferr").hidden = ok;
+    if (!ok) return;
+    const d = new FormData(cf), typeLabel = cf.querySelector("input[name=type]:checked + span").textContent;
+    const body = [typeLabel, "", d.get("message"), "", "—", d.get("name"), d.get("company"), d.get("email"), d.get("phone")].filter(v => v !== null && v !== undefined).join("\n");
+    location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("[Website] " + typeLabel + " — " + d.get("name")) + "&body=" + encodeURIComponent(body);
+  });
+  cf.querySelectorAll("input,textarea").forEach(f => f.addEventListener("input", () => { const p = f.closest(".fld"); if (p) p.classList.remove("bad"); }));
+}
