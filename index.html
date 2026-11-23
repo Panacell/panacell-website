@@ -8,207 +8,13 @@
 <meta property="og:title" content="Panacell Biotech — Cellular Technologies">
 <meta property="og:description" content="Stem cells · Exosomes · Immune cells · Cell processing">
 <meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<style>
-:root{
-  --ink:#121317; --ink2:#43454d; --mute:#8a8c94; --line:#e3e3e7; --soft:#f4f4f6; --paper:#fff;
-  --accent:#4a32b0;
-  --max:1440px; --pad:clamp(20px,4.2vw,64px);
-  --f:"Instrument Sans","Pretendard",system-ui,sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--f);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 0}
-html[lang=ko] body{font-family:"Pretendard","Instrument Sans",system-ui,sans-serif;word-break:keep-all}
-a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-img{display:block;max-width:100%}
-.w{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
-.lbl{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-.more{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600}
-.more i{display:inline-block;width:22px;height:1px;background:currentColor;position:relative;transition:width .3s}
-.more i::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid;border-right:1px solid;transform:rotate(45deg)}
-.more:hover i{width:34px}
-
-/* ---------- Header ---------- */
-.util{border-bottom:1px solid var(--line);font-size:13px;color:var(--ink2)}
-.util .w{display:flex;justify-content:flex-end;align-items:center;gap:22px;height:36px}
-.lang button{color:var(--mute);padding:2px 3px;font-weight:500}
-.lang button.on{color:var(--ink);font-weight:700}
-.lang span{color:var(--line)}
-header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--line);transition:box-shadow .3s}
-header.scrolled{box-shadow:0 1px 0 var(--line),0 8px 24px -18px rgba(0,0,0,.25)}
-.hd{display:flex;align-items:center;height:72px;gap:40px}
-.logo{font-weight:700;font-size:19px;letter-spacing:.02em;white-space:nowrap}
-.logo b{font-weight:700;color:var(--accent)}
-.gnb{display:flex;height:100%;margin-left:auto}
-.gnb>li{list-style:none;height:100%}
-.gnb>li>a{display:flex;align-items:center;height:100%;padding:0 20px;font-size:15px;font-weight:600;position:relative}
-.gnb>li>a::after{content:"";position:absolute;left:20px;right:20px;bottom:-1px;height:2px;background:var(--ink);transform:scaleX(0);transition:transform .25s}
-.gnb>li:hover>a::after,.gnb>li:focus-within>a::after{transform:scaleX(1)}
-.mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.25s}
-.gnb>li:hover .mega,.gnb>li:focus-within .mega{opacity:1;visibility:visible;transform:none}
-.mega .w{display:grid;grid-template-columns:1.2fr 2fr;gap:48px;padding-top:40px;padding-bottom:48px}
-.mega h4{font-size:26px;font-weight:600;letter-spacing:-.02em}
-.mega p{margin-top:10px;color:var(--ink2);font-size:14px;max-width:340px}
-.mega ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:0 32px;align-content:start}
-.mega li a{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px;font-weight:500}
-.mega li a:hover{color:var(--accent)}
-.cta-top{height:40px;padding:0 18px;display:inline-flex;align-items:center;background:var(--ink);color:#fff;font-size:14px;font-weight:600;transition:background .2s}
-.cta-top:hover{background:var(--accent)}
-.burger{display:none;width:40px;height:40px;margin-left:auto;position:relative}
-.burger span{position:absolute;left:9px;right:9px;height:1.5px;background:var(--ink);transition:.3s}
-.burger span:nth-child(1){top:14px}.burger span:nth-child(2){top:20px}.burger span:nth-child(3){top:26px}
-body.nav-open .burger span:nth-child(1){top:20px;transform:rotate(45deg)}
-body.nav-open .burger span:nth-child(2){opacity:0}
-body.nav-open .burger span:nth-child(3){top:20px;transform:rotate(-45deg)}
-.mnav{display:none}
-
-/* ---------- Hero ---------- */
-.hero{position:relative;height:calc(100vh - 108px);min-height:600px;max-height:860px;overflow:hidden;background:#f6f5fb}
-.hero-bg{position:absolute;inset:0 0 0 30%;background:url("images/hero.jpg") center/cover no-repeat;transform:scale(1.04);animation:kb 22s ease-out forwards}
-@keyframes kb{to{transform:scale(1)}}
-.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#fff 26%,rgba(255,255,255,.85) 40%,rgba(255,255,255,0) 62%)}
-.hero>.w{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center}
-.hero .lbl{color:var(--ink2)}
-.hero h1{margin-top:22px;font-size:clamp(54px,8vw,132px);font-weight:600;line-height:.94;letter-spacing:-.045em}
-.hero p.sub{margin-top:28px;max-width:440px;font-size:clamp(16px,1.25vw,19px);color:var(--ink2)}
-.hero-cta{margin-top:40px;display:flex;flex-wrap:wrap;gap:10px}
-.btn{height:50px;padding:0 24px;display:inline-flex;align-items:center;gap:12px;font-size:15px;font-weight:600;border:1px solid var(--ink);transition:.2s}
-.btn.dark{background:var(--ink);color:#fff}
-.btn.dark:hover{background:var(--accent);border-color:var(--accent)}
-.btn:not(.dark):hover{background:var(--ink);color:#fff}
-.hero-foot{position:absolute;z-index:2;left:0;right:0;bottom:0}
-.hero-foot .w{display:flex;justify-content:space-between;align-items:center;height:64px;border-top:1px solid rgba(18,19,23,.12);font-size:13px;color:var(--ink2)}
-.scroll{display:flex;align-items:center;gap:12px}
-.scroll i{width:48px;height:1px;background:rgba(18,19,23,.2);position:relative;overflow:hidden}
-.scroll i::after{content:"";position:absolute;inset:0;background:var(--ink);animation:sl 2.4s ease-in-out infinite}
-@keyframes sl{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
-
-/* ---------- Sections ---------- */
-section{scroll-margin-top:72px}
-.sec{padding:clamp(72px,9vw,140px) 0}
-.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:clamp(36px,4vw,56px)}
-.sh h2{margin-top:14px;font-size:clamp(32px,3.6vw,54px);font-weight:600;letter-spacing:-.03em;line-height:1.1;max-width:780px}
-.sh p{max-width:380px;color:var(--ink2);font-size:15px}
-
-/* platform cards */
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.card{display:flex;flex-direction:column;cursor:pointer}
-.card .im{aspect-ratio:4/5;overflow:hidden;background:var(--soft)}
-.card .im img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.card:hover .im img{transform:scale(1.06)}
-.card .no{margin-top:22px;font-size:13px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
-.card h3{margin-top:8px;font-size:24px;font-weight:600;letter-spacing:-.02em}
-.card p{margin-top:8px;font-size:15px;color:var(--ink2);flex:1}
-.card .more{margin-top:22px}
-
-/* stats */
-.stats{background:var(--ink);color:#fff}
-.stats .sh h2{color:#fff}.stats .lbl{color:#9a9cab}.stats .sh p{color:#b9bbc6}
-.sgrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.18)}
-.st{padding:32px 28px 8px 0}
-.st+.st{padding-left:28px;border-left:1px solid rgba(255,255,255,.18)}
-.st small{display:block;font-size:13px;color:#9a9cab;font-weight:500}
-.st strong{display:block;margin-top:20px;font-size:clamp(44px,4.6vw,72px);font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
-.st strong sup{font-size:.45em;vertical-align:.95em;letter-spacing:0}
-.st p{margin-top:18px;font-size:14px;color:#c9cbd4;max-width:240px}
-
-/* technology tabs */
-.tech{background:var(--soft)}
-.tabs{display:grid;grid-template-columns:320px 1fr;gap:clamp(32px,5vw,80px)}
-.tablist{border-top:1px solid var(--ink)}
-.tab{display:flex;gap:18px;width:100%;text-align:left;padding:22px 0;border-bottom:1px solid var(--line);font-size:19px;font-weight:600;color:var(--mute);transition:color .2s}
-.tab span{font-size:13px;padding-top:4px;font-variant-numeric:tabular-nums}
-.tab:hover{color:var(--ink2)}
-.tab[aria-selected=true]{color:var(--ink)}
-.tab[aria-selected=true] span{color:var(--accent)}
-.panel{display:none;grid-template-columns:1fr 1fr;gap:clamp(28px,3.5vw,56px);align-items:start}
-.panel.on{display:grid;animation:fade .5s ease}
-@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.panel .im{aspect-ratio:1;overflow:hidden}
-.panel .im img{width:100%;height:100%;object-fit:cover}
-.panel h3{font-size:clamp(26px,2.4vw,36px);font-weight:600;letter-spacing:-.025em;line-height:1.2}
-.panel p{margin-top:18px;color:var(--ink2);font-size:16px;line-height:1.75}
-.panel ul{list-style:none;margin-top:30px;border-top:1px solid var(--line)}
-.panel li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px;font-weight:500}
-.panel li::before{content:"";flex:none;width:6px;height:6px;margin-top:9px;background:var(--accent)}
-
-/* news */
-.news{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
-.ni{display:flex;flex-direction:column;padding:28px 28px 32px 0;min-height:260px;transition:background .2s}
-.ni+.ni{padding-left:28px;border-left:1px solid var(--line)}
-.ni .meta{display:flex;gap:12px;font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums}
-.ni .meta b{color:var(--accent);font-weight:600}
-.ni h3{margin-top:18px;font-size:21px;font-weight:600;letter-spacing:-.015em;line-height:1.4;flex:1}
-.ni:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
-.ni .src{margin-top:26px;display:flex;justify-content:space-between;font-size:13px;color:var(--ink2)}
-
-/* contact band */
-.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.band .w{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;padding-top:clamp(56px,6vw,88px);padding-bottom:clamp(56px,6vw,88px)}
-.band h2{font-size:clamp(30px,3.2vw,46px);font-weight:600;letter-spacing:-.03em;line-height:1.15}
-.band p{margin-top:12px;color:var(--ink2)}
-.band .btns{display:flex;flex-wrap:wrap;gap:10px}
-
-/* sitemap + footer */
-.smap{padding:64px 0 40px}
-.smap .w{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
-.smap h4{font-size:15px;font-weight:700;padding-bottom:16px;border-bottom:1px solid var(--ink)}
-.smap ul{list-style:none;margin-top:14px}
-.smap li a{display:block;padding:6px 0;font-size:14px;color:var(--ink2)}
-.smap li a:hover{color:var(--ink)}
-footer{background:var(--soft);font-size:13px;color:var(--ink2)}
-footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center;padding-top:28px;padding-bottom:28px}
-footer address{font-style:normal;line-height:1.8}
-.totop{width:44px;height:44px;border:1px solid var(--line);background:#fff;display:grid;place-items:center}
-.totop:hover{border-color:var(--ink)}
-
-/* reveal */
-.rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
-.rv.in{opacity:1;transform:none}
-
-/* ---------- Responsive ---------- */
-@media (max-width:1080px){
-  .gnb,.cta-top{display:none}
-  .burger{display:block}
-  .mnav{display:block;position:fixed;inset:108px 0 0;z-index:55;background:#fff;padding:12px var(--pad) 40px;overflow:auto;transform:translateX(100%);transition:transform .35s}
-  body.nav-open .mnav{transform:none}
-  body.nav-open{overflow:hidden}
-  .mnav h5{margin-top:28px;font-size:13px;color:var(--mute);font-weight:600}
-  .mnav a{display:block;padding:12px 0;border-bottom:1px solid var(--line);font-size:18px;font-weight:600}
-  .cards{grid-template-columns:repeat(2,1fr);row-gap:48px}
-  .sgrid{grid-template-columns:repeat(2,1fr)}
-  .st:nth-child(3){padding-left:0;border-left:0}
-  .st:nth-child(n+3){border-top:1px solid rgba(255,255,255,.18);margin-top:24px}
-  .tabs{grid-template-columns:1fr}
-  .smap .w{grid-template-columns:repeat(2,1fr)}
-}
-@media (max-width:720px){
-  .util .w{justify-content:space-between}
-  .hero{height:auto;max-height:none;min-height:0;display:flex;flex-direction:column}
-  .hero::before{display:none}
-  .hero-bg{position:relative;inset:auto;height:72vw;order:2;animation:none;transform:none}
-  .hero>.w{padding-top:56px;padding-bottom:40px}
-  .hero-foot{display:none}
-  .sh{flex-direction:column;align-items:flex-start}
-  .cards{grid-template-columns:1fr}
-  .card .im{aspect-ratio:16/10}
-  .sgrid{grid-template-columns:1fr}
-  .st,.st+.st{padding:28px 0 4px;border-left:0}
-  .st+.st{border-top:1px solid rgba(255,255,255,.18);margin-top:24px}
-  .panel.on{grid-template-columns:1fr}
-  .panel .im{aspect-ratio:16/10}
-  .news{grid-template-columns:1fr}
-  .ni,.ni+.ni{padding:24px 0;min-height:0;border-left:0;border-bottom:1px solid var(--line)}
-  .band .w{grid-template-columns:1fr}
-  .smap .w{grid-template-columns:1fr 1fr;row-gap:36px}
-}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -221,12 +27,12 @@ footer address{font-style:normal;line-height:1.8}
 
 <header id="hd">
   <div class="w hd">
-    <a href="#top" class="logo">PANACELL<b>.</b> BIOTECH</a>
+    <a href="index.html" class="logo"><img src="logo.png" alt="Panacell Biotech" width="159" height="40"></a>
     <ul class="gnb">
-      <li><a href="#about" data-i18n="n_company">Company</a>
+      <li><a href="about.html" data-i18n="n_company">Company</a>
         <div class="mega"><div class="w">
           <div><h4 data-i18n="n_company">Company</h4><p data-i18n="m_company">A cell culture company in Incheon, Korea, working across regenerative medicine and biomaterials.</p></div>
-          <ul><li><a href="#about"><span data-i18n="l_about">About Panacell</span><span>→</span></a></li><li><a href="#why"><span data-i18n="l_why">Why Panacell</span><span>→</span></a></li><li><a href="#facility" data-tab="3"><span data-i18n="l_facility">Facility</span><span>→</span></a></li><li><a href="#contact"><span data-i18n="l_location">Location</span><span>→</span></a></li></ul>
+          <ul><li><a href="about.html"><span data-i18n="l_about">About Panacell</span><span>→</span></a></li><li><a href="#why"><span data-i18n="l_why">Why Panacell</span><span>→</span></a></li><li><a href="about.html#certifications"><span data-i18n="l_facility">Facility</span><span>→</span></a></li><li><a href="about.html#location"><span data-i18n="l_location">Location</span><span>→</span></a></li></ul>
         </div></div>
       </li>
       <li><a href="#technology" data-i18n="n_tech">Technology</a>
@@ -254,7 +60,7 @@ footer address{font-style:normal;line-height:1.8}
 </header>
 
 <nav class="mnav">
-  <h5 data-i18n="n_company">Company</h5><a href="#about" data-i18n="l_about">About Panacell</a><a href="#why" data-i18n="l_why">Why Panacell</a>
+  <h5 data-i18n="n_company">Company</h5><a href="about.html" data-i18n="l_about">About Panacell</a><a href="#why" data-i18n="l_why">Why Panacell</a>
   <h5 data-i18n="n_tech">Technology</h5><a href="#technology" data-tab="0" data-i18n="t1">Stem Cells</a><a href="#technology" data-tab="1" data-i18n="t2">Exosomes</a><a href="#technology" data-tab="2" data-i18n="t3">Immune Cells</a><a href="#technology" data-tab="3" data-i18n="t4">Cell Processing</a>
   <h5 data-i18n="n_news">Newsroom</h5><a href="#news" data-i18n="l_latest">Latest News</a>
   <h5 data-i18n="n_partner">Partnering</h5><a href="#contact" data-i18n="contact">Contact Us</a>
@@ -269,7 +75,7 @@ footer address{font-style:normal;line-height:1.8}
       <h1>Cellular<br>Technologies</h1>
       <p class="sub" data-i18n="h_sub">We culture stem cells and immune cells, and turn what they produce into applied bioscience.</p>
       <div class="hero-cta">
-        <a class="btn dark" href="#about"><span data-i18n="l_about2">About Us</span><span>→</span></a>
+        <a class="btn dark" href="about.html"><span data-i18n="l_about2">About Us</span><span>→</span></a>
         <a class="btn" href="#news" data-i18n="n_news">Newsroom</a>
         <a class="btn" href="#contact" data-i18n="contact">Contact Us</a>
       </div>
@@ -285,10 +91,10 @@ footer address{font-style:normal;line-height:1.8}
         <p data-i18n="p_p">Panacell Biotech is a cell culture company working across regenerative medicine and biomaterials, with research ethics and safety as its starting point.</p>
       </div>
       <div class="cards">
-        <article class="card rv" data-tab="0"><div class="im"><img src="images/stem-cells.jpg" alt=""></div><span class="no">01</span><h3 data-i18n="t1">Stem Cells</h3><p data-i18n="c1">Mesenchymal stem cells derived from human umbilical cord Wharton’s jelly.</p><a class="more" href="#technology"><span data-i18n="lm">Learn more</span><i></i></a></article>
-        <article class="card rv" data-tab="1"><div class="im"><img src="images/exosomes.jpg" alt=""></div><span class="no">02</span><h3 data-i18n="t2">Exosomes</h3><p data-i18n="c2">Filtration-based isolation of high-concentration exosomes from culture media.</p><a class="more" href="#technology"><span data-i18n="lm">Learn more</span><i></i></a></article>
-        <article class="card rv" data-tab="2"><div class="im"><img src="images/immune-cells.jpg" alt=""></div><span class="no">03</span><h3 data-i18n="t3">Immune Cells</h3><p data-i18n="c3">NK cell expansion and DC-NK-T combined immune cell culture.</p><a class="more" href="#technology"><span data-i18n="lm">Learn more</span><i></i></a></article>
-        <article class="card rv" data-tab="3"><div class="im"><img src="images/facility.jpg" alt=""></div><span class="no">04</span><h3 data-i18n="t4">Cell Processing</h3><p data-i18n="c4">Cells cultured and managed in an MFDS-licensed processing facility.</p><a class="more" href="#technology"><span data-i18n="lm">Learn more</span><i></i></a></article>
+        <article class="card rv" data-tab="0"><div class="im"><img src="stem-cells.jpg" alt=""></div><span class="no">01</span><h3 data-i18n="t1">Stem Cells</h3><p data-i18n="c1">Mesenchymal stem cells derived from human umbilical cord Wharton’s jelly.</p><a class="more" href="#technology"><span data-i18n="lm">Learn more</span><i></i></a></article>
+        <article class="card rv" data-tab="1"><div class="im"><img src="exosomes.jpg" alt=""></div><span class="no">02</span><h3 data-i18n="t2">Exosomes</h3><p data-i18n="c2">Filtration-based isolation of high-concentration exosomes from culture media.</p><a class="more" href="#technology"><span data-i18n="lm">Learn more</span><i></i></a></article>
+        <article class="card rv" data-tab="2"><div class="im"><img src="immune-cells.jpg" alt=""></div><span class="no">03</span><h3 data-i18n="t3">Immune Cells</h3><p data-i18n="c3">NK cell expansion and DC-NK-T combined immune cell culture.</p><a class="more" href="#technology"><span data-i18n="lm">Learn more</span><i></i></a></article>
+        <article class="card rv" data-tab="3"><div class="im"><img src="facility.jpg" alt=""></div><span class="no">04</span><h3 data-i18n="t4">Cell Processing</h3><p data-i18n="c4">Cells cultured and managed in an MFDS-licensed processing facility.</p><a class="more" href="#technology"><span data-i18n="lm">Learn more</span><i></i></a></article>
       </div>
     </div>
   </section>
@@ -318,10 +124,10 @@ footer address{font-style:normal;line-height:1.8}
           <button class="tab" role="tab" aria-selected="false" id="facility"><span>04</span><b data-i18n="t4">Cell Processing</b></button>
         </div>
         <div>
-          <div class="panel on" role="tabpanel"><div class="im"><img src="images/stem-cells.jpg" alt=""></div><div><h3 data-i18n="d1_h">Wharton’s jelly MSC platform</h3><p data-i18n="d1_p">Our research team cultures mesenchymal stem cells derived from the Wharton’s jelly of the human umbilical cord. The culture extract developed in-house is officially registered in the International Nomenclature of Cosmetic Ingredients (INCI).</p><ul><li data-i18n="d1_a">Wharton’s jelly–derived mesenchymal stem cells</li><li data-i18n="d1_b">INCI-registered stem cell culture extract</li><li data-i18n="d1_c">Adipose-derived stem cell (ADSC) research</li></ul></div></div>
-          <div class="panel" role="tabpanel"><div class="im"><img src="images/exosomes.jpg" alt=""></div><div><h3 data-i18n="d2_h">Patented exosome isolation</h3><p data-i18n="d2_p">Exosomes are nano-sized vesicles that cells release to carry proteins, lipids and RNA to other cells. Our patented process isolates up to 4×10¹¹ exosome particles per mL by filtration from media collected while co-culturing NK, NKT and T cells.</p><ul><li data-i18n="d2_a">Manufacturing method patent registered, August 2024</li><li data-i18n="d2_b">Filtration-based, high-concentration isolation</li><li data-i18n="d2_c">Exosome ingredients for cosmetic applications</li></ul></div></div>
-          <div class="panel" role="tabpanel"><div class="im"><img src="images/immune-cells.jpg" alt=""></div><div><h3 data-i18n="d3_h">NK and DC-NK-T immune cells</h3><p data-i18n="d3_p">We expand natural killer (NK) cells, innate immune cells that recognise and remove abnormal cells, and culture DC-NK-T combined immune cells, in which dendritic cells, NK cells and T cells are grown together.</p><ul><li data-i18n="d3_a">NK cell expansion</li><li data-i18n="d3_b">DC-NK-T combined immune cell culture</li><li data-i18n="d3_c">NK · NKT · T cell co-culture media</li></ul></div></div>
-          <div class="panel" role="tabpanel"><div class="im"><img src="images/facility.jpg" alt=""></div><div><h3 data-i18n="d4_h">Licensed cell processing</h3><p data-i18n="d4_p">Cell culture and processing take place in a cell processing facility licensed by Korea’s Ministry of Food and Drug Safety (MFDS). We work with a partner clinic designated as an advanced regenerative medicine institution in 2024.</p><ul><li data-i18n="d4_a">MFDS-licensed cell processing facility</li><li data-i18n="d4_b">Partner clinic designated for advanced regenerative medicine</li><li data-i18n="d4_c">Research ethics and safety first</li></ul></div></div>
+          <div class="panel on" role="tabpanel"><div class="im"><img src="stem-cells.jpg" alt=""></div><div><h3 data-i18n="d1_h">Wharton’s jelly MSC platform</h3><p data-i18n="d1_p">Our research team cultures mesenchymal stem cells derived from the Wharton’s jelly of the human umbilical cord. The culture extract developed in-house is officially registered in the International Nomenclature of Cosmetic Ingredients (INCI).</p><ul><li data-i18n="d1_a">Wharton’s jelly–derived mesenchymal stem cells</li><li data-i18n="d1_b">INCI-registered stem cell culture extract</li><li data-i18n="d1_c">Adipose-derived stem cell (ADSC) research</li></ul></div></div>
+          <div class="panel" role="tabpanel"><div class="im"><img src="exosomes.jpg" alt=""></div><div><h3 data-i18n="d2_h">Patented exosome isolation</h3><p data-i18n="d2_p">Exosomes are nano-sized vesicles that cells release to carry proteins, lipids and RNA to other cells. Our patented process isolates up to 4×10¹¹ exosome particles per mL by filtration from media collected while co-culturing NK, NKT and T cells.</p><ul><li data-i18n="d2_a">Manufacturing method patent registered, August 2024</li><li data-i18n="d2_b">Filtration-based, high-concentration isolation</li><li data-i18n="d2_c">Exosome ingredients for cosmetic applications</li></ul></div></div>
+          <div class="panel" role="tabpanel"><div class="im"><img src="immune-cells.jpg" alt=""></div><div><h3 data-i18n="d3_h">NK and DC-NK-T immune cells</h3><p data-i18n="d3_p">We expand natural killer (NK) cells, innate immune cells that recognise and remove abnormal cells, and culture DC-NK-T combined immune cells, in which dendritic cells, NK cells and T cells are grown together.</p><ul><li data-i18n="d3_a">NK cell expansion</li><li data-i18n="d3_b">DC-NK-T combined immune cell culture</li><li data-i18n="d3_c">NK · NKT · T cell co-culture media</li></ul></div></div>
+          <div class="panel" role="tabpanel"><div class="im"><img src="facility.jpg" alt=""></div><div><h3 data-i18n="d4_h">Licensed cell processing</h3><p data-i18n="d4_p">Cell culture and processing take place in a cell processing facility licensed by Korea’s Ministry of Food and Drug Safety (MFDS). We work with a partner clinic designated as an advanced regenerative medicine institution in 2024.</p><ul><li data-i18n="d4_a">MFDS-licensed cell processing facility</li><li data-i18n="d4_b">Partner clinic designated for advanced regenerative medicine</li><li data-i18n="d4_c">Research ethics and safety first</li></ul></div></div>
         </div>
       </div>
     </div>
@@ -347,113 +153,25 @@ footer address{font-style:normal;line-height:1.8}
     </div>
   </section>
 
-  <div class="smap">
+  </main>
+
+<div class="smap">
     <div class="w">
-      <div><h4 data-i18n="n_company">Company</h4><ul><li><a href="#about" data-i18n="l_about">About Panacell</a></li><li><a href="#why" data-i18n="l_why">Why Panacell</a></li><li><a href="#technology" data-tab="3" data-i18n="l_facility">Facility</a></li></ul></div>
+      <div><h4 data-i18n="n_company">Company</h4><ul><li><a href="about.html" data-i18n="l_about">About Panacell</a></li><li><a href="#why" data-i18n="l_why">Why Panacell</a></li><li><a href="about.html#certifications" data-i18n="l_facility">Facility</a></li></ul></div>
       <div><h4 data-i18n="n_tech">Technology</h4><ul><li><a href="#technology" data-tab="0" data-i18n="t1">Stem Cells</a></li><li><a href="#technology" data-tab="1" data-i18n="t2">Exosomes</a></li><li><a href="#technology" data-tab="2" data-i18n="t3">Immune Cells</a></li><li><a href="#technology" data-tab="3" data-i18n="t4">Cell Processing</a></li></ul></div>
       <div><h4 data-i18n="n_news">Newsroom</h4><ul><li><a href="#news" data-i18n="l_latest">Latest News</a></li><li><a href="#news" data-i18n="l_press">Press Releases</a></li></ul></div>
       <div><h4 data-i18n="n_partner">Partnering</h4><ul><li><a data-mail="tech" data-i18n="l_lic">Technology Licensing</a></li><li><a data-mail="ir" data-i18n="l_ir">Investor Relations</a></li><li><a href="mailto:info@panacellbio.com">info@panacellbio.com</a></li></ul></div>
     </div>
   </div>
-</main>
 
 <footer>
   <div class="w">
+    <img class="flogo" src="logo.png" alt="Panacell Biotech" width="128" height="32">
     <address><span data-i18n="addr">3F Sun Tower, Inspire Entertainment Resort, 127 Gonghangmunhwa-ro, Jung-gu, Incheon, Republic of Korea</span><br>© <span id="yr"></span> Panacell Biotech Co., Ltd. All rights reserved.</address>
     <a href="#top" class="totop" aria-label="Back to top">↑</a>
   </div>
 </footer>
 
-<script>
-const EMAIL = "info@panacellbio.com";
-const KO = {
-  n_company:"회사소개", n_tech:"연구기술", n_news:"뉴스룸", n_partner:"파트너십", contact:"문의하기",
-  m_company:"인천에 위치한 세포 배양 전문 기업으로, 재생의료와 바이오 소재 분야를 연구합니다.",
-  m_tech:"세포를 안정적으로 키우고, 세포가 만드는 물질을 활용하는 하나의 역량에서 출발한 네 가지 플랫폼.",
-  m_news:"공지, 파트너십, 연구 관련 보도를 전합니다.",
-  m_partner:"기술이전·공동개발·투자 문의는 담당 팀이 직접 답변드립니다.",
-  l_about:"파나셀바이오텍 소개", l_why:"핵심 역량", l_facility:"세포처리시설", l_location:"오시는 길",
-  l_latest:"최신 뉴스", l_press:"보도자료", l_lic:"기술이전 문의", l_ir:"투자 문의", l_about2:"회사소개",
-  t1:"줄기세포", t2:"엑소좀", t3:"면역세포", t4:"세포처리",
-  h_lbl:"파나셀바이오텍 · 인천", h_sub:"줄기세포와 면역세포를 배양하고, 세포가 만들어내는 물질을 응용 바이오 기술로 연결합니다.",
-  h_foot:"줄기세포 · 엑소좀 · 면역세포 · 세포처리",
-  p_lbl:"플랫폼", p_h:"세포 배양에서 응용 바이오까지",
-  p_p:"파나셀바이오텍은 연구 윤리와 안전성을 원칙으로 재생의료와 바이오 소재를 연구하는 세포 배양 전문 기업입니다.",
-  c1:"인체 제대 와튼젤리 유래 중간엽 줄기세포 배양.", c2:"세포 배양액에서 고농도 엑소좀을 여과 방식으로 분리.",
-  c3:"NK세포 대량 배양과 DC-NK-T 복합 면역세포 배양.", c4:"식약처 허가 세포처리시설에서 세포를 배양·관리.",
-  lm:"자세히 보기",
-  s_lbl:"핵심 역량", s_h:"숫자로 보는 기술력",
-  s1_k:"엑소좀 수율", s1:"특허 공정으로 여과 분리한 mL당 엑소좀 입자 수",
-  s2_k:"특허 출원", s2:"자체 공정으로 생산한 엑소좀 함유 조성물 특허 출원",
-  s3_k:"특허 등록", s3:"엑소좀 제조방법 특허, 원천기술로 등록",
-  s4_k:"원료 등록", s4:"줄기세포 배양액 추출물 국제화장품성분(INCI) 공식 등록",
-  tc_h:"하나의 역량, 네 개의 플랫폼",
-  d1_h:"와튼젤리 줄기세포 플랫폼", d1_p:"인체 제대의 와튼젤리에서 유래한 중간엽 줄기세포를 배양합니다. 자체 연구진이 개발한 배양액 추출물은 국제화장품성분(INCI)에 공식 등록되어 있습니다.",
-  d1_a:"와튼젤리 유래 중간엽 줄기세포", d1_b:"INCI 등록 줄기세포 배양액 추출물", d1_c:"지방유래 줄기세포(ADSC) 연구",
-  d2_h:"특허 기반 엑소좀 분리", d2_p:"엑소좀은 세포가 분비하는 나노 크기의 소포체로, 단백질·지질·RNA를 다른 세포로 전달합니다. NK·NKT·T세포를 함께 배양하며 얻은 배양액에서 mL당 최대 4×10¹¹개의 엑소좀 입자를 여과 방식으로 분리하는 공정을 특허로 보유하고 있습니다.",
-  d2_a:"제조방법 특허 등록 (2024년 8월)", d2_b:"여과 기반 고농도 분리 공정", d2_c:"화장품용 엑소좀 원료",
-  d3_h:"NK · DC-NK-T 면역세포", d3_p:"비정상 세포를 스스로 인식하고 제거하는 선천 면역세포인 자연살해(NK)세포를 대량 배양하고, 수지상세포·NK세포·T세포를 함께 키우는 DC-NK-T 복합 면역세포를 배양합니다.",
-  d3_a:"NK세포 대량 배양", d3_b:"DC-NK-T 복합 면역세포 배양", d3_c:"NK · NKT · T세포 공동배양 배양액",
-  d4_h:"허가받은 세포처리시설", d4_p:"세포 배양과 처리는 식품의약품안전처 허가를 받은 세포처리시설에서 이루어집니다. 2024년 첨단재생의료 실시기관으로 지정된 협력 의료기관과 함께하고 있습니다.",
-  d4_a:"식약처 허가 세포처리시설", d4_b:"첨단재생의료 실시기관 지정 협력 의료기관", d4_c:"연구 윤리와 안전성 우선",
-  nw_h:"최신 소식", tag_p:"파트너십", tag_r:"보도자료", tag_m:"언론보도",
-  nw1:"파나셀바이오텍, 파나셀라와 엑소좀 제품 공동개발 업무협약 체결",
-  nw2:"파나셀바이오텍 엑소좀 제조방법 특허, 원천기술로 등록",
-  nw3:"파나셀바이오텍, 롱코비드 대상 NK세포·엑소좀·지방유래 줄기세포 연구 추진",
-  b_h:"파나셀바이오텍과 함께하세요", b_p:"기술이전, 공동 연구개발, 투자 문의를 담당 팀에 직접 보내주세요.",
-  addr:"인천광역시 중구 공항문화로 127, 인스파이어 엔터테인먼트 리조트 선타워 3층"
-};
-const EN = {};
-document.querySelectorAll("[data-i18n]").forEach(el => { EN[el.dataset.i18n] ??= el.innerHTML; });
-function setLang(l){
-  const d = l === "ko" ? KO : EN;
-  document.querySelectorAll("[data-i18n]").forEach(el => { const v = d[el.dataset.i18n]; if (v) el.innerHTML = v; });
-  document.documentElement.lang = l;
-  document.querySelectorAll("[data-lang]").forEach(b => b.classList.toggle("on", b.dataset.lang === l));
-  try { localStorage.setItem("lang", l); } catch(e){}
-}
-document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
-try { if (localStorage.getItem("lang") === "ko") setLang("ko"); } catch(e){}
-
-document.querySelectorAll("[data-mail]").forEach(a => {
-  a.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(a.dataset.mail === "ir" ? "Investor Relations Inquiry" : "Technology Licensing Inquiry");
-});
-
-// tabs
-const tabs = [...document.querySelectorAll(".tab")], panels = [...document.querySelectorAll(".panel")];
-function showTab(i){
-  tabs.forEach((t,j) => t.setAttribute("aria-selected", i === j));
-  panels.forEach((p,j) => p.classList.toggle("on", i === j));
-}
-tabs.forEach((t,i) => t.addEventListener("click", () => showTab(i)));
-document.querySelectorAll("[data-tab]").forEach(el => el.addEventListener("click", e => {
-  showTab(+el.dataset.tab);
-  if (el.tagName === "ARTICLE") document.getElementById("technology").scrollIntoView({behavior:"smooth"});
-  document.body.classList.remove("nav-open");
-}));
-
-// mobile nav
-document.querySelector(".burger").addEventListener("click", () => document.body.classList.toggle("nav-open"));
-document.querySelectorAll(".mnav a").forEach(a => a.addEventListener("click", () => document.body.classList.remove("nav-open")));
-
-// header shadow
-const hd = document.getElementById("hd");
-addEventListener("scroll", () => hd.classList.toggle("scrolled", scrollY > 40), {passive:true});
-
-// reveal + count-up
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if (!e.isIntersecting) return;
-  e.target.classList.add("in"); io.unobserve(e.target);
-  e.target.querySelectorAll("[data-count]").forEach(n => {
-    const to = +n.dataset.count, from = to > 100 ? to - 12 : 0, t0 = performance.now();
-    const step = t => { const k = Math.min(1,(t-t0)/1400), ease = 1 - Math.pow(1-k,3); n.textContent = Math.round(from + (to-from)*ease); if (k < 1) requestAnimationFrame(step); };
-    requestAnimationFrame(step);
-  });
-}), {threshold:.15});
-document.querySelectorAll(".rv").forEach(el => io.observe(el));
-document.querySelectorAll(".cards .card").forEach((c,i) => c.style.transitionDelay = i*0.09 + "s");
-
-document.getElementById("yr").textContent = new Date().getFullYear();
-</script>
+<script src="main.js"></script>
 </body>
 </html>
